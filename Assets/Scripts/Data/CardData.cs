@@ -7,6 +7,7 @@
         public Suit suit;
         public Type type;
         public RibbonType ribbonType;
+        public Sprite sprite;
 
         public enum Suit {
             Pine,
