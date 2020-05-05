@@ -25,6 +25,8 @@
 		public Player playerA, playerB;
 		public CanvasGroupTweener screenFader;
 
+		[HideInInspector] public Player dealer, activePlayer, inactivePlayer;
+
 		public Action Next;
 
 		public void GoNext () {

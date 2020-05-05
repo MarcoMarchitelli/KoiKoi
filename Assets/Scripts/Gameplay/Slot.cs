@@ -1,5 +1,6 @@
 ﻿namespace KoiKoi {
     using Deirin.Utilities;
+    using DG.Tweening;
     using UnityEngine;
 
     public class Slot : MonoBehaviour {
@@ -26,6 +27,8 @@
 
             this.card = card;
             empty = false;
+
+            UpdateGraphics();
         }
 
         public Card RemoveCard () {
@@ -33,6 +36,15 @@
             Card tempCard = card;
             card = null;
             return tempCard;
+        }
+
+        public void UpdateGraphics () {
+            if ( card ) {
+                if ( card.gameObject.activeSelf == false )
+                    card.gameObject.SetActive( true );
+                card.transform.DOMove( transform.position, .7f );
+                card.transform.DORotateQuaternion( transform.rotation, .7f );
+            }
         }
     }
 }

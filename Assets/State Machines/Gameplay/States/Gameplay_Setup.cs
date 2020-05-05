@@ -19,7 +19,20 @@
                 context.deck.AddCard( tempCard );
             }
 
+            //gamplay elements setup
+            context.board.Setup();
+            context.playerA.Setup();
+            context.playerB.Setup();
+
+            //setup deck and shuffle
+            context.deck.Setup();
+            context.deck.Shuffle();
+
             context.Next();
+
+#if UNITY_EDITOR
+            Debug.Log("Setup done!");
+#endif
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿namespace KoiKoi {
     using UnityEngine;
     using DG.Tweening;
+    using System.Collections.Generic;
 
     public class Hand : CardContainer {
         [Header("Paramteres")]
@@ -11,13 +12,20 @@
         #region API
         public void UpdateGraphics () {
             int count = cards.Count;
-            startPosition.Set( transform.position.x - ( count / 2.5f ), transform.position.y, transform.position.z );
+            startPosition.Set( transform.position.x, transform.position.y, transform.position.z - ( count * cardDistance * .5f ) );
             for ( int i = 0; i < count; i++ ) {
-                cards[i].transform.DOMove( startPosition + Vector3.right * cardDistance * i, 1f );
+                Card card = cards[i];
+                if ( card.gameObject.activeSelf == false )
+                    card.gameObject.SetActive( true );
+
+                card.transform.DOMove( startPosition + transform.forward * cardDistance * i, 1f );
+                card.transform.DORotateQuaternion( transform.rotation, 1f );
             }
         }
 
         public void Active ( bool value ) {
+            if ( cards == null )
+                cards = new List<Card>();
             foreach ( Card card in cards ) {
                 card.SetState( value ? Card.State.Hand : Card.State.Inactive );
             }

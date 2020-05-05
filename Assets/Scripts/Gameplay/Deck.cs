@@ -8,8 +8,9 @@
 
         private float singleCardHeight;
 
-        public void Setup () {
-            singleCardHeight = deckMesh.localScale.y / cards.Count;
+        protected override void CustomSetup () {
+            if ( cards.Count > 0 )
+                singleCardHeight = deckMesh.localScale.y / cards.Count;
         }
 
         #region Overrides

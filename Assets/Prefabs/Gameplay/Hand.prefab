@@ -43,5 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dafe765191ab5e47af20e35002c4210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardDistance: 0
-  deckMesh: {fileID: 0}
+  cardDistance: 2.6

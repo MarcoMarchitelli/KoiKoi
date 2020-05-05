@@ -12,6 +12,7 @@
                 tempSlot = slots[i];
                 if ( tempSlot.empty ) {
                     tempSlot.SetCard( card );
+                    break;
                 }
             }
         }
